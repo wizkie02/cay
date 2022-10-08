@@ -117,5 +117,6 @@ if __name__ == '__main__':
         criterion= nn.CrossEntropyLoss()
         optmizer= optim.Adam(net.parameters(),lr= lr)
         Train(100, train_loader, val_loader, criterion, optmizer, device)
-        # /////
-        # Train(epochs, train_loader, val_loader, criterion, optmizer, device)
+	for param in net.parameters():
+		param.requires_grad = True
+        Train(100, train_loader, val_loader, criterion, optmizer, device)
